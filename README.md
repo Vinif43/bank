@@ -1,5 +1,47 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Requisitos do desafio
+
+### Home Page
+
+- [x] Uma página inicial simples que dá boas-vindas aos usuários.
+- [x] Exibir informações sobre o saldo da conta corrente e um extrato das últimas transações.
+- [x] Incluir uma seção para iniciar uma nova transação, com opções para selecionar o tipo de transação e inserir o valor.
+
+### Listagem de Transações
+
+- [x] Uma página que exibe a lista de transações realizadas, com opções para visualizar detalhes, editar e deletar cada transação.
+
+### Adicionar Nova Transação
+
+- [ ] Uma página ou modal para adicionar uma nova transação ao banco de dados.
+- [ ] Formulário deve incluir campos como tipo de transação (depósito, transferência, etc.), valor e data.
+
+### Editar Transação
+
+- [x] Uma página ou modal para editar as informações de uma transação existente.
+
+### Next.js
+
+- [ ] Configure e organize o projeto utilizando Next.js.
+  - Adicionar error boundaries (error.tsx) para cada rota?
+
+### Design System
+
+- [ ] Crie um design system que garanta consistência visual e reutilização de componentes.
+  - Assegurar a acessibilidade de contraste de cores
+- [ ] Use ferramentas como Storybook, Docusaurus ou GitBook para documentar os componentes.
+- [x] Explore bibliotecas como Material-UI, Bootstrap ou Tailwind UI para agilizar o desenvolvimento.
+- [ ] Garantir consistência visual, boa usabilidade e acessibilidade.
+  - Testar navegação pelo teclado e controle do foco ao abrir e fechar modais.
+
+### Material para a entrega
+
+- [ ] Link do repositório Git do projeto.
+- [ ] README do projeto com as informações para executá-lo em ambiente de desenvolvimento.
+- [ ] Vídeo de até 5min explicando todo o fluxo do front-end desenvolvido.
+  - Devemos entregar o link do vídeo ou o vídeo em si?
+
 ## Getting Started
 
 First, run the development server:
