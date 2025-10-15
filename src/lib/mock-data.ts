@@ -1,10 +1,36 @@
 import type { Transaction, Account } from './types'
 
 export const mockAccount: Account = {
-  balance: 2500.0,
+  balance: 2500,
   accountNumber: '1234-5',
   userName: 'Vinicius Ferreira Marinho',
+  email: 'vinicius.ferreira@gmail.com',
+  password: '123456#Vini',
 }
+
+export const mockAccounts: Account[] = [
+  {
+    balance: 5300,
+    accountNumber: '1234-5',
+    userName: 'Vinicius Ferreira Marinho',
+    email: 'vinicius.ferreira@gmail.com',
+    password: '123456#Vini',
+  },
+  {
+    balance: 6523,
+    accountNumber: '6457-9',
+    userName: 'Adriane Silva Sanches',
+    email: 'adriane_silvas@hotmail.com',
+    password: '123456#Adri',
+  },
+  {
+    balance: 8177.23,
+    accountNumber: '7890-1',
+    userName: 'Marcos Querino',
+    email: 'marcosquerino@gmail.com',
+    password: '123456#Marcos',
+  },
+]
 
 export const mockTransactions: Transaction[] = [
   {

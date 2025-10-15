@@ -1,10 +1,5 @@
 'use client'
 
-import { Header } from '@/components/header'
-import { Sidebar } from '@/components/sidebar'
-import { mockAccount } from '@/lib/mock-data'
-import { Card, CardContent } from '@/components/ui/card'
-
 export default function InvestimentosPage() {
   return (
     <div className="">

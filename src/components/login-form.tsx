@@ -17,6 +17,9 @@ import {
 } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { useRouter } from 'next/navigation'
+import { mockAccounts } from '@/lib/mock-data'
+import { Account } from '@/lib/types'
 
 const loginSchema = z.object({
   email: z.string().email({ message: 'Por favor, insira um e-mail válido.' }),
@@ -30,6 +33,8 @@ type LoginFormValues = z.infer<typeof loginSchema>
 export function LoginForm() {
   const [isLoading, setIsLoading] = useState(false)
 
+  const router = useRouter()
+
   const {
     register,
     handleSubmit,
@@ -41,14 +46,32 @@ export function LoginForm() {
   async function handleLogin(data: LoginFormValues) {
     try {
       setIsLoading(true)
-
       console.log('Dados enviados (simulação):', data)
-      await new Promise((resolve) => setTimeout(resolve, 1500))
+      await new Promise((resolve) => {
+        const accountRegistered: Account[] = mockAccounts.filter(
+          (account) => account.email === data.email,
+        )
 
-      toast.success('Login efetuado com sucesso!', {
-        description: 'Você será redirecionado em breve.',
+        if (
+          accountRegistered?.length > 0 &&
+          accountRegistered[0]?.password === data.password
+        ) {
+          toast.success('Login efetuado com sucesso!', {
+            description: 'Você será redirecionado em breve.',
+          })
+          // router.replace('/home')
+        } else {
+          toast.error('Erro ao fazer login', {
+            description: 'E-mail ou senha inválidos. Tente novamente.',
+          })
+        }
+        setTimeout(resolve, 500)
       })
-    } catch (error) {
+
+      // toast.success('Login efetuado com sucesso!', {
+      //   description: 'Você será redirecionado em breve.',
+      // })
+    } catch {
       toast.error('Erro ao fazer login', {
         description: 'E-mail ou senha inválidos. Tente novamente.',
       })

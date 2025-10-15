@@ -1,10 +1,8 @@
 import type { Metadata } from 'next'
+// eslint-disable-next-line camelcase
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
-import { Providers } from './providers'
-import { Sidebar } from '@/components/sidebar'
-import { Header } from '@/components/header'
-import { mockAccount } from '@/lib/mock-data'
+import { Toaster } from 'sonner'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -31,15 +29,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Providers>
-          <div className="min-h-screen flex flex-col">
-            <Header userName={mockAccount.userName} />
-            <div className="flex flex-1">
-              <Sidebar />
-              {children}
-            </div>
-          </div>
-        </Providers>
+        {children}
+        <Toaster richColors position="top-right" />
       </body>
     </html>
   )

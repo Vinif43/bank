@@ -1,12 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import { Header } from '@/components/header'
-import { Sidebar } from '@/components/sidebar'
 import { TransactionList } from '@/components/transaction-list'
 import { TransactionDetailDialog } from '@/components/transaction-detail-dialog'
 import { EditTransactionDialog } from '@/components/edit-transaction-dialog'
-import { mockAccount } from '@/lib/mock-data'
 import { Button } from '@/components/ui/button'
 import { Plus } from 'lucide-react'
 import Link from 'next/link'
@@ -71,7 +68,7 @@ export default function TransacoesPage() {
                   Gerencie todas as suas transações financeiras
                 </p>
               </div>
-              <Link href="/">
+              <Link href="/home">
                 <Button>
                   <Plus className="h-4 w-4 mr-2" />
                   Nova Transação

@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Pencil } from 'lucide-react'
 import { useTransactions } from '@/contexts/transactions-context'
 import Link from 'next/link'
+import { useClientFormattedDate } from '@/lib/utils'
 
 const transactionLabels: Record<string, string> = {
   deposito: 'Depósito',
@@ -25,12 +26,8 @@ export function RecentTransactions() {
   }
 
   const formatDate = (dateString: string) => {
-    const date = new Date(dateString + 'T00:00:00')
-    return date.toLocaleDateString('pt-BR', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric',
-    })
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    return useClientFormattedDate(dateString)
   }
 
   const getMonthLabel = (dateString: string) => {
