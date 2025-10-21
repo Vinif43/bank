@@ -14,7 +14,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ### Adicionar Nova Transação
 
-- [ ] Uma página ou modal para adicionar uma nova transação ao banco de dados.
+- [X] Uma página ou modal para adicionar uma nova transação ao banco de dados.
 - [ ] Formulário deve incluir campos como tipo de transação (depósito, transferência, etc.), valor e data.
 
 ### Editar Transação
