@@ -2,6 +2,7 @@
 
 import { BalanceCard } from '@/components/balance-card'
 import { TransactionForm } from '@/components/transaction-form'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { RecentTransactions } from '@/components/recent-transactions'
 import { useTransactions } from '@/contexts/transactions-context'
 import { mockAccount } from '@/lib/mock-data'
@@ -37,7 +38,15 @@ export default function HomePage() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               <div className="lg:col-span-2 space-y-6">
                 <BalanceCard balance={currentBalance} />
-                <TransactionForm />
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-xl">Nova transação</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <TransactionForm />
+                  </CardContent>
+                </Card>
               </div>
               <div>
                 <RecentTransactions />

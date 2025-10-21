@@ -3,7 +3,6 @@
 import type React from 'react'
 
 import { useState } from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -25,7 +24,15 @@ const transactionTypes: { value: TransactionType; label: string }[] = [
   { value: 'saque', label: 'Saque' },
 ]
 
-export function TransactionForm() {
+interface TransactionFormProps {
+  isModal?: boolean
+  onOpenChange?: (open: boolean) => void
+}
+
+export function TransactionForm({
+  isModal,
+  onOpenChange,
+}: TransactionFormProps) {
   // poderia usar react query com zod
   const [type, setType] = useState<TransactionType>('deposito')
   const [amount, setAmount] = useState('')
@@ -56,63 +63,74 @@ export function TransactionForm() {
 
     setAmount('')
     setDescription('')
+
+    onOpenChange?.(false)
   }
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="text-xl">Nova transação</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="space-y-2">
-            <Label htmlFor="type">Tipo de transação</Label>
-            <Select
-              value={type}
-              onValueChange={(value) => setType(value as TransactionType)}
-            >
-              <SelectTrigger id="type">
-                <SelectValue placeholder="Selecione o tipo de transação" />
-              </SelectTrigger>
-              <SelectContent>
-                {transactionTypes.map((t) => (
-                  <SelectItem key={t.value} value={t.value}>
-                    {t.label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div className="space-y-2">
+        <Label htmlFor="type">Tipo de transação</Label>
+        <Select
+          value={type}
+          onValueChange={(value) => setType(value as TransactionType)}
+        >
+          <SelectTrigger id="type">
+            <SelectValue placeholder="Selecione o tipo de transação" />
+          </SelectTrigger>
+          <SelectContent>
+            {transactionTypes.map((t) => (
+              <SelectItem key={t.value} value={t.value}>
+                {t.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="amount">Valor</Label>
-            <Input
-              id="amount"
-              type="number"
-              step="0.01"
-              placeholder="0,00"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-              required
-            />
-          </div>
+      <div className="space-y-2">
+        <Label htmlFor="amount">Valor</Label>
+        <Input
+          id="amount"
+          type="number"
+          step="0.01"
+          placeholder="0,00"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+          required
+        />
+      </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="description">Descrição (opcional)</Label>
-            <Input
-              id="description"
-              type="text"
-              placeholder="Descrição da transação"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-          </div>
+      <div className="space-y-2">
+        <Label htmlFor="description">Descrição (opcional)</Label>
+        <Input
+          id="description"
+          type="text"
+          placeholder="Descrição da transação"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+      </div>
 
-          <Button type="submit" className="w-full" size="lg">
+      {isModal ? (
+        <div className="flex gap-3 pt-4">
+          <Button
+            type="button"
+            variant="outline"
+            className="flex-1 bg-transparent"
+            onClick={() => onOpenChange?.(false)}
+          >
+            Cancelar
+          </Button>
+          <Button type="submit" className="flex-1">
             Concluir transação
           </Button>
-        </form>
-      </CardContent>
-    </Card>
+        </div>
+      ) : (
+        <Button type="submit" className="w-full" size="lg">
+          Concluir transação
+        </Button>
+      )}
+    </form>
   )
 }

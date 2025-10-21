@@ -20,11 +20,13 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from '@/components/ui/alert-dialog'
+import { CreateTransactionDialog } from '@/components/create-transaction-dialog'
 
 export default function TransacoesPage() {
   const [selectedTransaction, setSelectedTransaction] =
     useState<Transaction | null>(null)
   const [viewDialogOpen, setViewDialogOpen] = useState(false)
+  const [createDialogOpen, setCreateDialogOpen] = useState(false)
   const [editDialogOpen, setEditDialogOpen] = useState(false)
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false)
   const [transactionToDelete, setTransactionToDelete] = useState<string | null>(
@@ -68,12 +70,10 @@ export default function TransacoesPage() {
                   Gerencie todas as suas transações financeiras
                 </p>
               </div>
-              <Link href="/home">
-                <Button>
-                  <Plus className="h-4 w-4 mr-2" />
-                  Nova Transação
-                </Button>
-              </Link>
+              <Button onClick={() => setCreateDialogOpen(true)}>
+                <Plus className="h-4 w-4 mr-2" />
+                Nova Transação
+              </Button>
             </div>
 
             <TransactionList
@@ -89,6 +89,11 @@ export default function TransacoesPage() {
         transaction={selectedTransaction}
         open={viewDialogOpen}
         onOpenChange={setViewDialogOpen}
+      />
+
+      <CreateTransactionDialog
+        open={createDialogOpen}
+        onOpenChange={setCreateDialogOpen}
       />
 
       <EditTransactionDialog
