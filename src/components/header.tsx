@@ -1,6 +1,6 @@
 'use client'
 
-import { User } from 'lucide-react'
+import { Landmark, User } from 'lucide-react'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { useAccount } from '@/contexts/account-context'
 import { Button } from './ui/button'
@@ -12,10 +12,17 @@ export function Header() {
 
   return (
     <header className="bg-primary text-primary-foreground px-8 py-4 flex items-center justify-between">
-      <div className="flex-1" />
+      <div className="flex items-center">
+        <Landmark className="h-7 w-7 text-[#ffd21f]" />
+        <img
+          src="/logo-destaque.png"
+          alt="logo-destaque"
+          className="h-[50px]"
+        />
+      </div>
       <div className="flex items-center gap-3">
         {account ? (
-          <span>Olá, {account.userName.split(' ')[0]}</span>
+          <span>{account.userName.split(' ')[0]}</span>
         ) : (
           <span>Carregando...</span>
         )}
@@ -30,7 +37,7 @@ export function Header() {
             logout()
             router.replace('/')
           }}
-          className="bg-transparent border-transparent text-primary-foreground ml-[40px]"
+          className="bg-transparent border-primary-foreground text-primary-foreground ml-[40px]"
         >
           Sair
         </Button>

@@ -5,12 +5,12 @@ import { TransactionForm } from '@/components/transaction-form'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { RecentTransactions } from '@/components/recent-transactions'
 import { useTransactions } from '@/contexts/transactions-context'
-import { mockAccount } from '@/lib/mock-data'
 import { Toaster } from '@/components/ui/sonner'
+import { useAccount } from '@/contexts/account-context'
 
 export default function HomePage() {
-  const { getBalance } = useTransactions()
-  const currentBalance = getBalance()
+  const { account } = useAccount()
+  const currentBalance = account?.balance ? account.balance : 0
 
   const getGreeting = () => {
     const date = new Date()
@@ -29,9 +29,14 @@ export default function HomePage() {
         <div className="flex-1 p-8">
           <div className="max-w-7xl mx-auto space-y-8">
             <div>
-              <h1 className="text-3xl font-bold mb-1">
-                Olá, {mockAccount.userName.split(' ')[0]}!
-              </h1>
+              {account ? (
+                <h1 className="text-3xl font-bold mb-1">
+                  {' '}
+                  Olá, {account.userName.split(' ')[0]}!
+                </h1>
+              ) : (
+                <h1>Carregando...</h1>
+              )}
               <p className="text-sm text-muted-foreground">{getGreeting()}</p>
             </div>
 

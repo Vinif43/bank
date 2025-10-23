@@ -1,16 +1,21 @@
 'use client'
 
 import type React from 'react'
-import { createContext, useContext, useState, useCallback } from 'react'
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useCallback,
+} from 'react'
 import type { Transaction } from '@/lib/types'
-import { mockTransactions } from '@/lib/mock-data'
+import { useAccount } from '@/contexts/account-context'
 
 interface TransactionsContextType {
   transactions: Transaction[]
   addTransaction: (transaction: Omit<Transaction, 'id'>) => void
   updateTransaction: (id: string, transaction: Partial<Transaction>) => void
   deleteTransaction: (id: string) => void
-  getBalance: () => number
 }
 
 const TransactionsContext = createContext<TransactionsContextType | undefined>(
@@ -22,19 +27,39 @@ export function TransactionsProvider({
 }: {
   children: React.ReactNode
 }) {
-  const [transactions, setTransactions] =
-    useState<Transaction[]>(mockTransactions)
+  const [transactions, setTransactions] = useState<Transaction[]>([])
+  const { debit, credit, account } = useAccount()
 
-  const addTransaction = useCallback((transaction: Omit<Transaction, 'id'>) => {
-    const newTransaction: Transaction = {
-      ...transaction,
-      id: Date.now().toString(),
+  useEffect(() => {
+    if (account) {
+      setTransactions(account.transactions || [])
+    } else {
+      setTransactions([])
     }
-    setTransactions((prev) => [newTransaction, ...prev])
-  }, [])
+  }, [account])
+
+  const addTransaction = useCallback(
+    (transaction: Omit<Transaction, 'id'>) => {
+      if (!account) return
+
+      const newTransaction: Transaction = {
+        ...transaction,
+        id: Date.now().toString(),
+      }
+      setTransactions((prev) => [newTransaction, ...prev])
+
+      if (newTransaction.type === 'deposito') {
+        credit(newTransaction.amount)
+      } else {
+        debit(Math.abs(newTransaction.amount))
+      }
+    },
+    [account, credit, debit],
+  )
 
   const updateTransaction = useCallback(
     (id: string, updatedData: Partial<Transaction>) => {
+      // implementar recalculo do saldo
       setTransactions((prev) =>
         prev.map((t) => (t.id === id ? { ...t, ...updatedData } : t)),
       )
@@ -46,10 +71,6 @@ export function TransactionsProvider({
     setTransactions((prev) => prev.filter((t) => t.id !== id))
   }, [])
 
-  const getBalance = useCallback(() => {
-    return transactions.reduce((acc, t) => acc + t.amount, 2500)
-  }, [transactions])
-
   return (
     <TransactionsContext.Provider
       value={{
@@ -57,7 +78,6 @@ export function TransactionsProvider({
         addTransaction,
         updateTransaction,
         deleteTransaction,
-        getBalance,
       }}
     >
       {children}

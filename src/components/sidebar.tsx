@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils'
 
 const navigation = [
   { name: 'Início', href: '/home', icon: Home },
-  { name: 'Transferências', href: '/transacoes', icon: ArrowLeftRight },
+  { name: 'Transações', href: '/transacoes', icon: ArrowLeftRight },
   { name: 'Investimentos', href: '/investimentos', icon: TrendingUp },
   { name: 'Outros serviços', href: '/servicos', icon: MoreHorizontal },
 ]

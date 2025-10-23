@@ -8,6 +8,8 @@ interface AccountContextType {
   login: (accountData: Account) => void
   logout: () => void
   updateBalance: (newBalance: number) => void
+  credit: (amount: number) => void
+  debit: (amount: number) => void
 }
 
 const AccountContext = createContext<AccountContextType | undefined>(undefined)
@@ -29,11 +31,39 @@ export function AccountProvider({ children }: { children: React.ReactNode }) {
     }
   }
 
+  const credit = (amount: number) => {
+    setAccount((prevAccount) => {
+      if (prevAccount === null) {
+        return null
+      }
+
+      return {
+        ...prevAccount,
+        balance: prevAccount.balance + amount,
+      }
+    })
+  }
+
+  const debit = (amount: number) => {
+    setAccount((prevAccount) => {
+      if (prevAccount === null) {
+        return null
+      }
+
+      return {
+        ...prevAccount,
+        balance: prevAccount.balance - amount,
+      }
+    })
+  }
+
   const value = {
     account,
     login,
     logout,
     updateBalance,
+    credit,
+    debit,
   }
 
   return (

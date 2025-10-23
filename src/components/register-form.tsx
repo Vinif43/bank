@@ -89,6 +89,7 @@ export function RegisterForm({ onSuccess }: RegisterFormProps) {
         userName: data.nome,
         email: data.email,
         password: data.password,
+        transactions: [],
       }
 
       list.push(newAccount)

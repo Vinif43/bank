@@ -16,7 +16,7 @@ const transactionLabels: Record<string, string> = {
 
 const transactionColors: Record<string, string> = {
   deposito: 'bg-success/10 text-success border-success/20',
-  transferencia: 'bg-accent/10 text-accent border-accent/20',
+  transferencia: 'bg-[#ff98ff] text-[#800180] border-[#800180]/20',
   pagamento: 'bg-chart-4/10 text-chart-4 border-chart-4/20',
   saque: 'bg-destructive/10 text-destructive border-destructive/20',
 }
@@ -50,7 +50,7 @@ export function TransactionList({
     })
   }
 
-  if (transactions.length === 0) {
+  if (!transactions || (transactions && transactions.length === 0)) {
     return (
       <Card>
         <CardContent className="py-12 text-center">

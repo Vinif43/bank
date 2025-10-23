@@ -16,8 +16,7 @@ const transactionLabels: Record<string, string> = {
 
 export function RecentTransactions() {
   const { transactions } = useTransactions()
-  const recentTransactions = transactions.slice(0, 5)
-
+  const recentTransactions = (transactions || []).slice(0, 5)
   const formatCurrency = (value: number) => {
     return new Intl.NumberFormat('pt-BR', {
       style: 'currency',
@@ -74,11 +73,18 @@ export function RecentTransactions() {
             </div>
           ))}
         </div>
-        <Link href="/transacoes">
-          <Button variant="link" className="w-full mt-4">
-            Ver todas as transações
-          </Button>
-        </Link>
+        {!recentTransactions ||
+        (recentTransactions && recentTransactions.length === 0) ? (
+          <p className="text-muted-foreground text-center">
+            Nenhuma transação encontrada
+          </p>
+        ) : (
+          <Link href="/transacoes">
+            <Button variant="link" className="w-full mt-4">
+              Ver todas as transações
+            </Button>
+          </Link>
+        )}
       </CardContent>
     </Card>
   )
