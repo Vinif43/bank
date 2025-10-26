@@ -15,10 +15,10 @@ const transactionLabels: Record<string, string> = {
 }
 
 const transactionColors: Record<string, string> = {
-  deposito: 'bg-success/10 text-success border-success/20',
-  transferencia: 'bg-[#ff98ff] text-[#800180] border-[#800180]/20',
-  pagamento: 'bg-chart-4/10 text-chart-4 border-chart-4/20',
-  saque: 'bg-destructive/10 text-destructive border-destructive/20',
+  deposito: 'bg-[#075b03]/10 text-[#075b03] border-[#075b03]',
+  transferencia: 'bg-[#ff98ff]/20 text-[#800180] border-[#800180]',
+  pagamento: 'bg-[#829300]/10 text-[#829300] border-[#829300]',
+  saque: 'bg-[#0b0591]/10 text-[#0b0591] border-[#0b0591]',
 }
 
 interface TransactionListProps {
@@ -81,9 +81,6 @@ export function TransactionList({
                     {formatDate(transaction.date)}
                   </span>
                 </div>
-                <p className="text-sm text-muted-foreground mb-1">
-                  {transaction.description}
-                </p>
                 <p
                   className={`text-2xl font-bold ${transaction.amount >= 0 ? 'text-success' : 'text-foreground'}`}
                 >

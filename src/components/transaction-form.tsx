@@ -58,8 +58,6 @@ export function TransactionForm({
         `${transactionTypes.find((t) => t.value === type)?.label}`,
     })
 
-    toast.success('Transação adicionada com sucesso')
-
     setAmount('')
     setDescription('')
 

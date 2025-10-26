@@ -79,8 +79,6 @@ export function EditTransactionDialog({
         `${transactionTypes.find((t) => t.value === type)?.label}`,
     })
 
-    toast.success('Transação atualizada com sucesso')
-
     onOpenChange(false)
   }
 

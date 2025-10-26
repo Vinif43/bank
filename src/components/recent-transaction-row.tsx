@@ -1,7 +1,10 @@
 'use client'
 
 import { Transaction } from '@/lib/types'
-import { useClientFormattedDate, useClientFormattedMonth } from '@/lib/utils'
+import {
+  useClientFormattedDate,
+  useClientFormattedMonth,
+} from '@/hooks/client-hooks'
 
 const transactionLabels: Record<string, string> = {}
 

@@ -4,8 +4,6 @@ import { BalanceCard } from '@/components/balance-card'
 import { TransactionForm } from '@/components/transaction-form'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { RecentTransactions } from '@/components/recent-transactions'
-import { useTransactions } from '@/contexts/transactions-context'
-import { Toaster } from '@/components/ui/sonner'
 import { useAccount } from '@/contexts/account-context'
 
 export default function HomePage() {
@@ -60,7 +58,6 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-      <Toaster />
     </div>
   )
 }

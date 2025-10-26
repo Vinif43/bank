@@ -3,6 +3,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
 import { Account, Transaction } from '@/lib/types'
 import { mockAccounts } from '@/lib/mock-data'
+import { toast } from 'sonner'
 
 interface AccountContextType {
   account: Account | null
@@ -60,6 +61,23 @@ export function AccountProvider({ children }: { children: React.ReactNode }) {
       ...transactionData,
       id: Date.now().toString(),
     }
+
+    // adicionando verificação para saldo inferior ao valor das transações de saída
+    const currentAccount = account
+    if (!currentAccount) {
+      return
+    }
+    if (
+      newTransaction.amount < 0 &&
+      currentAccount.balance + newTransaction.amount < 0
+    ) {
+      toast.error('Saldo insuficiente', {
+        description:
+          'Você não possui saldo suficiente para realizar esta operação.',
+      })
+      return
+    }
+
     setAccount((prevAccount) => {
       if (!prevAccount) return null
       return {
@@ -68,15 +86,39 @@ export function AccountProvider({ children }: { children: React.ReactNode }) {
         transactions: [newTransaction, ...prevAccount.transactions],
       }
     })
+
+    toast.success('Transação adicionada com sucesso')
   }
 
   const updateTransaction = (
     id: string,
     updatedData: Partial<Omit<Transaction, 'id'>>,
   ) => {
+    // adicionando verificação para saldo inferior ao valor das transações de saída
+    const currentAccount = account
+    if (!currentAccount) return
+
+    const transactionToUpdate = currentAccount.transactions.find(
+      (t) => t.id === id,
+    )
+    if (!transactionToUpdate) return
+
+    const oldAmount = transactionToUpdate.amount
+    const newAmount = updatedData.amount ?? oldAmount
+    const balanceDifference = newAmount - oldAmount
+    const potentialNewBalance = currentAccount.balance + balanceDifference
+    if (potentialNewBalance < 0) {
+      toast.error('Saldo insuficiente', {
+        description:
+          'Você não possui saldo suficiente para realizar esta operação.',
+      })
+      return
+    }
+
     setAccount((prevAccount) => {
       if (!prevAccount) return null
       let balanceDifference = 0
+
       const newTransactions = prevAccount.transactions.map((t) => {
         if (t.id === id) {
           const oldAmount = t.amount
@@ -86,24 +128,30 @@ export function AccountProvider({ children }: { children: React.ReactNode }) {
         }
         return t
       })
+
       return {
         ...prevAccount,
         balance: prevAccount.balance + balanceDifference,
         transactions: newTransactions,
       }
     })
+
+    toast.success('Transação atualizada com sucesso')
   }
 
   const deleteTransaction = (id: string) => {
     setAccount((prevAccount) => {
       if (!prevAccount) return null
+
       const transactionToDelete = prevAccount.transactions.find(
         (t) => t.id === id,
       )
+
       if (!transactionToDelete) return prevAccount
       const newTransactions = prevAccount.transactions.filter(
         (t) => t.id !== id,
       )
+
       const newBalance = prevAccount.balance - transactionToDelete.amount
       return {
         ...prevAccount,
