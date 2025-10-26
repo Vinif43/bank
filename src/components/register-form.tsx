@@ -167,9 +167,7 @@ export function RegisterForm({ onSuccess }: RegisterFormProps) {
           <div className="flex items-center space-x-2">
             <Checkbox
               id="terms"
-              // O 'checked' é controlado pelo hook 'watch'
               checked={termsAccepted}
-              // O 'onCheckedChange' atualiza o valor usando 'setValue'
               onCheckedChange={(checked: boolean) => {
                 setValue('terms', checked, { shouldValidate: true })
               }}

@@ -1,20 +1,17 @@
 'use client'
 
 import type React from 'react'
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-  useCallback,
-} from 'react'
+import { createContext, useContext } from 'react'
 import type { Transaction } from '@/lib/types'
 import { useAccount } from '@/contexts/account-context'
 
 interface TransactionsContextType {
   transactions: Transaction[]
   addTransaction: (transaction: Omit<Transaction, 'id'>) => void
-  updateTransaction: (id: string, transaction: Partial<Transaction>) => void
+  updateTransaction: (
+    id: string,
+    updatedData: Partial<Omit<Transaction, 'id'>>,
+  ) => void
   deleteTransaction: (id: string) => void
 }
 
@@ -27,49 +24,10 @@ export function TransactionsProvider({
 }: {
   children: React.ReactNode
 }) {
-  const [transactions, setTransactions] = useState<Transaction[]>([])
-  const { debit, credit, account } = useAccount()
+  const { account, addTransaction, updateTransaction, deleteTransaction } =
+    useAccount()
 
-  useEffect(() => {
-    if (account) {
-      setTransactions(account.transactions || [])
-    } else {
-      setTransactions([])
-    }
-  }, [account])
-
-  const addTransaction = useCallback(
-    (transaction: Omit<Transaction, 'id'>) => {
-      if (!account) return
-
-      const newTransaction: Transaction = {
-        ...transaction,
-        id: Date.now().toString(),
-      }
-      setTransactions((prev) => [newTransaction, ...prev])
-
-      if (newTransaction.type === 'deposito') {
-        credit(newTransaction.amount)
-      } else {
-        debit(Math.abs(newTransaction.amount))
-      }
-    },
-    [account, credit, debit],
-  )
-
-  const updateTransaction = useCallback(
-    (id: string, updatedData: Partial<Transaction>) => {
-      // implementar recalculo do saldo
-      setTransactions((prev) =>
-        prev.map((t) => (t.id === id ? { ...t, ...updatedData } : t)),
-      )
-    },
-    [],
-  )
-
-  const deleteTransaction = useCallback((id: string) => {
-    setTransactions((prev) => prev.filter((t) => t.id !== id))
-  }, [])
+  const transactions = account?.transactions || []
 
   return (
     <TransactionsContext.Provider

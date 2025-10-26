@@ -22,3 +22,15 @@ export function useClientFormattedDate(dateString: string | null | undefined) {
   }, [dateString])
   return formattedDate
 }
+
+export function useClientFormattedMonth(dateString: string | null | undefined) {
+  const [formattedMonth, setFormattedMonth] = useState('')
+  useEffect(() => {
+    if (dateString) {
+      const date = new Date(dateString + 'T12:00:00')
+      const finalMonth = date.toLocaleDateString('pt-BR', { month: 'long' })
+      setFormattedMonth(finalMonth)
+    }
+  }, [dateString])
+  return formattedMonth
+}

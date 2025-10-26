@@ -42,7 +42,6 @@ export function EditTransactionDialog({
   open,
   onOpenChange,
 }: EditTransactionDialogProps) {
-  // poderia usar react query com zod
   const [type, setType] = useState<TransactionType>('deposito')
   const [amount, setAmount] = useState('')
   const [date, setDate] = useState('')

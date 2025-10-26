@@ -1,21 +1,51 @@
 'use client'
 
-import React, { createContext, useContext, useState } from 'react'
-import { Account } from '@/lib/types'
+import React, { createContext, useContext, useState, useEffect } from 'react'
+import { Account, Transaction } from '@/lib/types'
+import { mockAccounts } from '@/lib/mock-data'
 
 interface AccountContextType {
   account: Account | null
   login: (accountData: Account) => void
   logout: () => void
-  updateBalance: (newBalance: number) => void
-  credit: (amount: number) => void
-  debit: (amount: number) => void
+  addTransaction: (transactionData: Omit<Transaction, 'id'>) => void
+  updateTransaction: (
+    id: string,
+    updatedData: Partial<Omit<Transaction, 'id'>>,
+  ) => void
+  deleteTransaction: (id: string) => void
 }
 
 const AccountContext = createContext<AccountContextType | undefined>(undefined)
 
 export function AccountProvider({ children }: { children: React.ReactNode }) {
   const [account, setAccount] = useState<Account | null>(null)
+
+  useEffect(() => {
+    if (account === null) {
+      return
+    }
+
+    let list: Account[] = []
+    try {
+      const storedList = localStorage.getItem('accountsList')
+      list = JSON.parse(storedList || '[]')
+      if (!Array.isArray(list) || list.length === 0) {
+        list = mockAccounts
+      }
+    } catch {
+      list = mockAccounts
+    }
+
+    const updatedList = list.map((acc) => {
+      if (acc.accountNumber === account.accountNumber) {
+        return account
+      }
+      return acc
+    })
+
+    localStorage.setItem('accountsList', JSON.stringify(updatedList))
+  }, [account])
 
   const login = (accountData: Account) => {
     setAccount(accountData)
@@ -25,34 +55,60 @@ export function AccountProvider({ children }: { children: React.ReactNode }) {
     setAccount(null)
   }
 
-  const updateBalance = (newBalance: number) => {
-    if (account) {
-      setAccount({ ...account, balance: newBalance })
+  const addTransaction = (transactionData: Omit<Transaction, 'id'>) => {
+    const newTransaction: Transaction = {
+      ...transactionData,
+      id: Date.now().toString(),
     }
-  }
-
-  const credit = (amount: number) => {
     setAccount((prevAccount) => {
-      if (prevAccount === null) {
-        return null
-      }
-
+      if (!prevAccount) return null
       return {
         ...prevAccount,
-        balance: prevAccount.balance + amount,
+        balance: prevAccount.balance + newTransaction.amount,
+        transactions: [newTransaction, ...prevAccount.transactions],
       }
     })
   }
 
-  const debit = (amount: number) => {
+  const updateTransaction = (
+    id: string,
+    updatedData: Partial<Omit<Transaction, 'id'>>,
+  ) => {
     setAccount((prevAccount) => {
-      if (prevAccount === null) {
-        return null
-      }
-
+      if (!prevAccount) return null
+      let balanceDifference = 0
+      const newTransactions = prevAccount.transactions.map((t) => {
+        if (t.id === id) {
+          const oldAmount = t.amount
+          const newAmount = updatedData.amount ?? oldAmount
+          balanceDifference = newAmount - oldAmount
+          return { ...t, ...updatedData, id }
+        }
+        return t
+      })
       return {
         ...prevAccount,
-        balance: prevAccount.balance - amount,
+        balance: prevAccount.balance + balanceDifference,
+        transactions: newTransactions,
+      }
+    })
+  }
+
+  const deleteTransaction = (id: string) => {
+    setAccount((prevAccount) => {
+      if (!prevAccount) return null
+      const transactionToDelete = prevAccount.transactions.find(
+        (t) => t.id === id,
+      )
+      if (!transactionToDelete) return prevAccount
+      const newTransactions = prevAccount.transactions.filter(
+        (t) => t.id !== id,
+      )
+      const newBalance = prevAccount.balance - transactionToDelete.amount
+      return {
+        ...prevAccount,
+        balance: newBalance,
+        transactions: newTransactions,
       }
     })
   }
@@ -61,9 +117,9 @@ export function AccountProvider({ children }: { children: React.ReactNode }) {
     account,
     login,
     logout,
-    updateBalance,
-    credit,
-    debit,
+    addTransaction,
+    updateTransaction,
+    deleteTransaction,
   }
 
   return (

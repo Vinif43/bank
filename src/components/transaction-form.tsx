@@ -33,7 +33,6 @@ export function TransactionForm({
   isModal,
   onOpenChange,
 }: TransactionFormProps) {
-  // poderia usar react query com zod
   const [type, setType] = useState<TransactionType>('deposito')
   const [amount, setAmount] = useState('')
   const [description, setDescription] = useState('')
