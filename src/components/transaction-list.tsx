@@ -14,13 +14,6 @@ const transactionLabels: Record<string, string> = {
   saque: 'Saque',
 }
 
-const transactionColors: Record<string, string> = {
-  deposito: 'bg-[#075b03]/10 text-[#075b03] border-[#075b03]',
-  transferencia: 'bg-[#ff98ff]/20 text-[#800180] border-[#800180]',
-  pagamento: 'bg-[#829300]/10 text-[#829300] border-[#829300]',
-  saque: 'bg-[#0b0591]/10 text-[#0b0591] border-[#0b0591]',
-}
-
 interface TransactionListProps {
   onEdit: (transaction: Transaction) => void
   onDelete: (id: string) => void
@@ -72,8 +65,7 @@ export function TransactionList({
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-3 mb-2">
                   <Badge
-                    variant="outline"
-                    className={transactionColors[transaction.type]}
+                    variant={transaction.type}
                   >
                     {transactionLabels[transaction.type]}
                   </Badge>
