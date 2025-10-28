@@ -30,7 +30,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 - [ ] Crie um design system que garanta consistência visual e reutilização de componentes.
   - Assegurar a acessibilidade de contraste de cores
-- [ ] Use ferramentas como Storybook, Docusaurus ou GitBook para documentar os componentes.
+- [x] Use ferramentas como Storybook, Docusaurus ou GitBook para documentar os componentes.
 - [x] Explore bibliotecas como Material-UI, Bootstrap ou Tailwind UI para agilizar o desenvolvimento.
 - [ ] Garantir consistência visual, boa usabilidade e acessibilidade.
   - Testar navegação pelo teclado e controle do foco ao abrir e fechar modais.
