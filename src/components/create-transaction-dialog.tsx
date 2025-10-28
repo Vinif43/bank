@@ -27,7 +27,7 @@ export function CreateTransactionDialog({
         <DialogHeader>
           <DialogTitle>Nova Transação</DialogTitle>
           <DialogDescription>
-            Atualize as informações da transação
+            Informe as informações da transação
           </DialogDescription>
         </DialogHeader>
         <TransactionForm isModal onOpenChange={onOpenChange} />
