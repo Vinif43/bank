@@ -38,7 +38,7 @@ export function RecentTransactions() {
         <CardTitle className="text-xl">Extrato</CardTitle>
         <div className="flex gap-2">
           <Link href="/transacoes">
-            <Button variant="ghost" size="icon">
+            <Button variant="ghost" size="icon" title="Editar transações">
               <Pencil className="h-4 w-4" />
             </Button>
           </Link>
