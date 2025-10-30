@@ -64,9 +64,7 @@ export function TransactionList({
             <div className="flex items-center justify-between gap-4">
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-3 mb-2">
-                  <Badge
-                    variant={transaction.type}
-                  >
+                  <Badge variant={transaction.type}>
                     {transactionLabels[transaction.type]}
                   </Badge>
                   <span className="text-sm text-muted-foreground">
