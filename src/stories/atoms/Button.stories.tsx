@@ -5,7 +5,7 @@ import { Pencil } from 'lucide-react'
 import { fn } from 'storybook/test'
 
 const meta = {
-  title: 'Button',
+  title: 'atoms/Button',
   component: Button,
   parameters: {
     layout: 'centered',

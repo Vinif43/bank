@@ -5,7 +5,7 @@ import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import { fn } from 'storybook/test'
 
 const meta = {
-  title: 'TransactionCard',
+  title: 'transaction/TransactionCard',
   component: TransactionCard,
   parameters: {
     layout: 'centered',
