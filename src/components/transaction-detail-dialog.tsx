@@ -58,9 +58,7 @@ export function TransactionDetailDialog({
         <div className="space-y-4 py-4">
           <div>
             <p className="text-sm text-muted-foreground mb-2">Tipo</p>
-            <Badge
-              variant={transaction.type}
-            >
+            <Badge variant={transaction.type}>
               {transactionLabels[transaction.type]}
             </Badge>
           </div>
