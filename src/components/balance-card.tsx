@@ -21,7 +21,7 @@ export function BalanceCard({ balance }: BalanceCardProps) {
 
   return (
     <Card className="bg-primary text-primary-foreground border-0 shadow-lg">
-      <CardContent className="p-8">
+      <CardContent className="px-4 md:px-8">
         <div className="flex items-center justify-between mb-2">
           <span className="text-sm font-medium opacity-90">Saldo</span>
           <Button

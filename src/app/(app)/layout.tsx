@@ -32,7 +32,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     <TransactionsProvider>
       <div className="flex min-h-screen flex-col">
         <Header />
-        <div className="flex flex-1">
+        <div className="flex flex-col md:flex-row">
           <Sidebar />
           {children}
         </div>

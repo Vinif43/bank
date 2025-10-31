@@ -60,9 +60,9 @@ export default function TransacoesPage() {
   return (
     <div className=" w-full ">
       <div className="">
-        <div className="flex-1 p-8">
+        <div className="flex-1 p-[15px] md:p-8">
           <div className="max-w-5xl mx-auto space-y-6">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between gap-[10px]">
               <div>
                 <h1 className="text-3xl font-bold mb-1">Transações</h1>
                 <p className="text-sm text-muted-foreground">

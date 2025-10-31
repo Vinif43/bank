@@ -67,7 +67,7 @@ export function TransactionList({
           key={transaction.id}
           className="hover:shadow-md transition-shadow"
         >
-          <CardContent className="p-6">
+          <CardContent className="pl-[15px] pr-[10px] md:pl-6 md:pr-4">
             <div className="flex items-center justify-between gap-4">
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-3 mb-2">
