@@ -32,13 +32,13 @@ export default function LoginPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="bg-primary text-primary-foreground px-8 py-4 flex items-center justify-between">
+      <header className="bg-primary text-primary-foreground px-2 md:px-8 pb-4 pt-1 md:py-4 flex items-center flex-col md:flex-row gap-[8px] justify-between">
         <div className="flex items-center">
-          <Landmark className="h-7 w-7 text-[#ffd21f]" />
+          <Landmark className="h-5 w-5 md:h-7 md:w-7 text-[#ffd21f]" />
           <img
             src="/logo-destaque.png"
             alt="logo-destaque"
-            className="h-[50px]"
+            className="h-[35px] md:h-[50px]"
           />
         </div>
 
@@ -63,53 +63,61 @@ export default function LoginPage() {
       </header>
 
       <main className="flex flex-1 flex-col items-center bg-[#540057] bg-[linear-gradient(180deg,_rgba(84,_0,_87,_1)_0%,_rgba(255,_255,_205,_1)_70%,_rgba(255,_255,_255,_1)_100%)]">
-        <div className="flex gap-[12px] items-center p-[3%]">
-          <h1 className="text-[22px] text-center font-semibold">
+        <div className="flex flex-col lg:flex-row gap-[12px] items-center p-[3%]">
+          <h1 className="text-[16px] md:text-[22px] text-center font-normal md:font-semibold text-[#FFF] lg:text-[#000]">
             Experimente mais liberdade no controle da sua vida financeira.
             <br />
             Crie sua conta com a gente!
           </h1>
           <img src="/pessoas.png" alt="pessoas" />
         </div>
-        <h2 className="text-[18px] font-medium mb-[3vh]">
+        <h2 className="text-[16px] md:text-[18px] font-medium mt-[2vh] md:mt-[0vh] mb-[3vh]">
           Vantagens do nosso banco
         </h2>
-        <div className="grid grid-cols-[1fr_1fr_1fr_1fr] gap-[20px] pt-[0] px-[3%] pb-[3%]">
+        <div className="grid grid-cols-[1fr_1fr] md:grid-cols-[1fr_1fr_1fr_1fr] gap-[20px] pt-[0] px-[3%] pb-[5%] md:pb-[3%]">
           <div className="border-[1px]border-[#000] rounded-[16px] p-[14px] flex flex-col items-center justify-center [box-shadow:0px_5px_15px_rgba(0,_0,_0,_0.5)]">
-            <Gift className="h-9 w-9 text-[#435200]" />
-            <h1 className="text-[#435200] text-[16px] font-medium mb-[6px]">
-              Conta e cartão gratuitos
-            </h1>
-            <p className="text-[14px] text-center">
+            <div className="flex items-center justify-center md:flex-col">
+              <Gift className="h-8 w-8 md:h-9 md:w-9 text-[#435200]" />
+              <h1 className="text-[#435200] text-center text-[14px] md:text-[16px] font-medium mb-[6px]">
+                Conta e cartão gratuitos
+              </h1>
+            </div>
+            <p className="text-[12px] md:text-[14px] text-center">
               Isso mesmo, nossa conta é digital, sem custo fixo e mais que isso:
               sem tarifa de manutenção.
             </p>
           </div>
           <div className="border-[1px]border-[#000] rounded-[16px] p-[14px] flex flex-col items-center justify-center [box-shadow:0px_5px_15px_rgba(0,_0,_0,_0.5)]">
-            <HandCoins className="h-9 w-9 text-[#435200]" />
-            <h1 className="text-[#435200] text-[16px] font-medium mb-[6px]">
-              Saques sem custo
-            </h1>
-            <p className="text-[14px] text-center">
+            <div className="flex items-center justify-center md:flex-col">
+              <HandCoins className="h-8 w-8 md:h-9 md:w-9 text-[#435200]" />
+              <h1 className="text-[#435200] text-center text-[14px] md:text-[16px] font-medium mb-[6px]">
+                Saques sem custo
+              </h1>
+            </div>
+            <p className="text-[12px] md:text-[14px] text-center">
               Você pode sacar gratuitamente 4x por mês de qualquer Banco 24h.
             </p>
           </div>
           <div className="border-[1px]border-[#000] rounded-[16px] p-[14px] flex flex-col items-center justify-center [box-shadow:0px_5px_15px_rgba(0,_0,_0,_0.5)]">
-            <Star className="h-9 w-9 text-[#435200]" />
-            <h1 className="text-[#435200] text-[16px] font-medium mb-[6px]">
-              Programa de pontos
-            </h1>
-            <p className="text-[14px] text-center">
+            <div className="flex items-center justify-center md:flex-col">
+              <Star className="h-8 w-8 md:h-9 md:w-9 text-[#435200]" />
+              <h1 className="text-[#435200] text-center text-[14px] md:text-[16px] font-medium mb-[6px]">
+                Programa de pontos
+              </h1>
+            </div>
+            <p className="text-[12px] md:text-[14px] text-center">
               Você pode acumular pontos com suas compras no crédito sem pagar
               mensalidade!
             </p>
           </div>
           <div className="border-[1px]border-[#000] rounded-[16px] p-[14px] flex flex-col items-center justify-center [box-shadow:0px_5px_15px_rgba(0,_0,_0,_0.5)]">
-            <MonitorSmartphone className="h-9 w-9 text-[#435200]" />
-            <h1 className="text-[#435200] text-[16px] font-medium mb-[6px]">
-              Seguro Dispositivos
-            </h1>
-            <p className="text-[14px] text-center">
+            <div className="flex items-center justify-center md:flex-col">
+              <MonitorSmartphone className="h-8 w-8 md:h-9 md:w-9 text-[#435200]" />
+              <h1 className="text-[#435200] text-center text-[14px] md:text-[16px] font-medium mb-[6px]">
+                Seguro Dispositivos
+              </h1>
+            </div>
+            <p className="text-[12px] md:text-[14px] text-center">
               Seus dispositivos móveis (computador e laptop) protegidos por uma
               mensalidade simbólica.
             </p>
