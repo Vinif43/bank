@@ -2,14 +2,12 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Home, ArrowLeftRight, TrendingUp, MoreHorizontal } from 'lucide-react'
+import { Home, ArrowLeftRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const navigation = [
   { name: 'Início', href: '/home', icon: Home },
   { name: 'Transações', href: '/transacoes', icon: ArrowLeftRight },
-  { name: 'Investimentos', href: '/investimentos', icon: TrendingUp },
-  { name: 'Outros serviços', href: '/servicos', icon: MoreHorizontal },
 ]
 
 export function Sidebar() {
