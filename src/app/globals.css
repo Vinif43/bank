@@ -6,6 +6,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-backoground-login: var(--backoground-login);
+  --color-backoground-login-less: var(--backoground-login-less);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -37,6 +39,13 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-default-home: var(--default-home);
+  --color-text-infos: var(--text-infos);
+  --color-transaction-success: var(--transaction-success);
+  --color-transaction-transfer: var(--transaction-transfer);
+  --color-transaction-transfer-info: var(--transaction-transfer-info);
+  --color-transaction-payment: var(--transaction-payment);
+  --color-transaction-withdraw: var(--transaction-withdraw);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -76,6 +85,15 @@
   --sidebar-accent-foreground: oklch(0.216 0.006 56.043);
   --sidebar-border: oklch(0.923 0.003 48.717);
   --sidebar-ring: oklch(0.709 0.01 56.259);
+  --default-home: oklch(0.8775 0.1745 92.55);
+  --backoground-login: oklch(0.3151 0.1461 326.63);
+  --backoground-login-less: oklch(0.775 0.1087 327.1);
+  --text-infos: oklch(0.4108 0.098582 121.0087);
+  --transaction-success: oklch(0.4095 0.136 142.21);
+  --transaction-transfer: oklch(0.8203 0.1762 327.03);
+  --transaction-transfer-info: oklch(0.4213 0.1929 328.36);
+  --transaction-payment: oklch(0.6276 0.145561 117.6221);
+  --transaction-withdraw: oklch(0.3039 0.2007 266.56);
 }
 
 .dark {
@@ -110,6 +128,15 @@
   --sidebar-accent-foreground: oklch(0.985 0.001 106.423);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.553 0.013 58.071);
+  --default-home: oklch(0.8775 0.1745 92.55);
+  --backoground-login: oklch(0.3151 0.1461 326.63);
+  --backoground-login-less: oklch(0.775 0.1087 327.1);
+  --text-infos: oklch(0.4108 0.098582 121.0087);
+  --transaction-success: oklch(0.4095 0.136 142.21);
+  --transaction-transfer: oklch(0.8203 0.1762 327.03);
+  --transaction-transfer-info: oklch(0.4213 0.1929 328.36);
+  --transaction-payment: oklch(0.6276 0.145561 117.6221);
+  --transaction-withdraw: oklch(0.3039 0.2007 266.56);
 }
 
 @layer base {

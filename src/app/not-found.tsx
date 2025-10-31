@@ -9,7 +9,7 @@ export default function NotFound() {
     <div className="flex flex-col min-h-screen">
       <header className="bg-primary text-primary-foreground px-8 py-4 flex items-center justify-center md:justify-start">
         <div className="flex items-center">
-          <Landmark className="h-7 w-7 text-[#ffd21f]" />
+          <Landmark className="h-7 w-7 text-default-home" />
           <img
             src="/logo-destaque.png"
             alt="logo-destaque"
@@ -18,7 +18,7 @@ export default function NotFound() {
         </div>
       </header>
 
-      <main className="flex flex-1 flex-col items-center justify-center bg-[#540057] bg-[linear-gradient(180deg,_rgba(84,_0,_87,_1)_0%,_rgba(255,_255,_205,_1)_70%,_rgba(255,_255,_255,_1)_100%)]">
+      <main className="flex flex-1 flex-col items-center justify-center bg-backoground-login bg-[linear-gradient(180deg,_rgba(84,_0,_87,_1)_0%,_rgba(255,_255,_205,_1)_70%,_rgba(255,_255,_255,_1)_100%)]">
         <div className="flex flex-col items-center justify-center text-center p-4">
           <h1 className="text-[25px] md:text-4xl font-bold mb-4">
             Oops! Página Não Encontrada

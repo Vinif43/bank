@@ -34,7 +34,7 @@ export default function LoginPage() {
     <div className="flex flex-col min-h-screen">
       <header className="bg-primary text-primary-foreground px-2 md:px-8 pb-4 pt-1 md:py-4 flex items-center flex-col md:flex-row gap-[8px] justify-between">
         <div className="flex items-center">
-          <Landmark className="h-5 w-5 md:h-7 md:w-7 text-[#ffd21f]" />
+          <Landmark className="h-5 w-5 md:h-7 md:w-7 text-default-home" />
           <img
             src="/logo-destaque.png"
             alt="logo-destaque"
@@ -45,7 +45,7 @@ export default function LoginPage() {
         <div className="flex items-center gap-2">
           <Button
             onClick={() => setIsRegisterDialogOpen(true)}
-            className="bg-primary-foreground text-primary border-2 border-transparent hover:bg-[#ffd21f] hover:text-primary hover:border-[#ffd21f]"
+            className="bg-primary-foreground text-primary border-2 border-transparent hover:bg-default-home hover:text-primary hover:border-default-home"
           >
             <UserPlus className="h-4 w-4" />
             Abra sua conta
@@ -54,7 +54,7 @@ export default function LoginPage() {
           <Button
             variant="outline"
             onClick={() => setIsLoginDialogOpen(true)}
-            className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-[#db9dda] hover:text-primary hover:border-[#db9dda]"
+            className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-backoground-login-less hover:text-primary hover:border-backoground-login-less"
           >
             <LogIn className="h-4 w-4" />
             Entrar
@@ -62,9 +62,9 @@ export default function LoginPage() {
         </div>
       </header>
 
-      <main className="flex flex-1 flex-col items-center bg-[#540057] bg-[linear-gradient(180deg,_rgba(84,_0,_87,_1)_0%,_rgba(255,_255,_205,_1)_70%,_rgba(255,_255,_255,_1)_100%)]">
+      <main className="flex flex-1 flex-col items-center bg-backoground-login bg-[linear-gradient(180deg,_rgba(84,_0,_87,_1)_0%,_rgba(255,_255,_205,_1)_70%,_rgba(255,_255,_255,_1)_100%)]">
         <div className="flex flex-col lg:flex-row gap-[12px] items-center p-[3%]">
-          <h1 className="text-[16px] md:text-[22px] text-center font-normal md:font-semibold text-[#FFF] lg:text-[#000]">
+          <h1 className="text-[16px] md:text-[22px] text-center font-normal md:font-semibold text-background">
             Experimente mais liberdade no controle da sua vida financeira.
             <br />
             Crie sua conta com a gente!
@@ -75,10 +75,10 @@ export default function LoginPage() {
           Vantagens do nosso banco
         </h2>
         <div className="grid grid-cols-[1fr_1fr] md:grid-cols-[1fr_1fr_1fr_1fr] gap-[20px] pt-[0] px-[3%] pb-[5%] md:pb-[3%]">
-          <div className="border-[1px]border-[#000] rounded-[16px] p-[14px] flex flex-col items-center justify-center [box-shadow:0px_5px_15px_rgba(0,_0,_0,_0.5)]">
-            <div className="flex items-center justify-center md:flex-col">
-              <Gift className="h-8 w-8 md:h-9 md:w-9 text-[#435200]" />
-              <h1 className="text-[#435200] text-center text-[14px] md:text-[16px] font-medium mb-[6px]">
+          <div className="border-[1px]border-foreground rounded-[16px] p-[14px] flex flex-col items-center justify-center [box-shadow:0px_5px_15px_rgba(0,_0,_0,_0.5)]">
+            <div className="flex items-center justify-center md:flex-col gap-[6px] mb-[6px] md:mb-[0px]">
+              <Gift className="h-8 w-8 md:h-9 md:w-9 text-text-infos" />
+              <h1 className="text-text-infos text-center text-[14px] md:text-[16px] font-medium mb-[0px] md:mb-[6px]">
                 Conta e cartão gratuitos
               </h1>
             </div>
@@ -87,10 +87,10 @@ export default function LoginPage() {
               sem tarifa de manutenção.
             </p>
           </div>
-          <div className="border-[1px]border-[#000] rounded-[16px] p-[14px] flex flex-col items-center justify-center [box-shadow:0px_5px_15px_rgba(0,_0,_0,_0.5)]">
-            <div className="flex items-center justify-center md:flex-col">
-              <HandCoins className="h-8 w-8 md:h-9 md:w-9 text-[#435200]" />
-              <h1 className="text-[#435200] text-center text-[14px] md:text-[16px] font-medium mb-[6px]">
+          <div className="border-[1px]border-foreground rounded-[16px] p-[14px] flex flex-col items-center justify-center [box-shadow:0px_5px_15px_rgba(0,_0,_0,_0.5)]">
+            <div className="flex items-center justify-center md:flex-col gap-[6px] mb-[6px] md:mb-[0px]">
+              <HandCoins className="h-8 w-8 md:h-9 md:w-9 text-text-infos" />
+              <h1 className="text-text-infos text-center text-[14px] md:text-[16px] font-medium mb-[0px] md:mb-[6px]">
                 Saques sem custo
               </h1>
             </div>
@@ -98,10 +98,10 @@ export default function LoginPage() {
               Você pode sacar gratuitamente 4x por mês de qualquer Banco 24h.
             </p>
           </div>
-          <div className="border-[1px]border-[#000] rounded-[16px] p-[14px] flex flex-col items-center justify-center [box-shadow:0px_5px_15px_rgba(0,_0,_0,_0.5)]">
-            <div className="flex items-center justify-center md:flex-col">
-              <Star className="h-8 w-8 md:h-9 md:w-9 text-[#435200]" />
-              <h1 className="text-[#435200] text-center text-[14px] md:text-[16px] font-medium mb-[6px]">
+          <div className="border-[1px]border-foreground rounded-[16px] p-[14px] flex flex-col items-center justify-center [box-shadow:0px_5px_15px_rgba(0,_0,_0,_0.5)]">
+            <div className="flex items-center justify-center md:flex-col gap-[6px] mb-[6px] md:mb-[0px]">
+              <Star className="h-8 w-8 md:h-9 md:w-9 text-text-infos" />
+              <h1 className="text-text-infos text-center text-[14px] md:text-[16px] font-medium mb-[0px] md:mb-[6px]">
                 Programa de pontos
               </h1>
             </div>
@@ -110,10 +110,10 @@ export default function LoginPage() {
               mensalidade!
             </p>
           </div>
-          <div className="border-[1px]border-[#000] rounded-[16px] p-[14px] flex flex-col items-center justify-center [box-shadow:0px_5px_15px_rgba(0,_0,_0,_0.5)]">
-            <div className="flex items-center justify-center md:flex-col">
-              <MonitorSmartphone className="h-8 w-8 md:h-9 md:w-9 text-[#435200]" />
-              <h1 className="text-[#435200] text-center text-[14px] md:text-[16px] font-medium mb-[6px]">
+          <div className="border-[1px]border-foreground rounded-[16px] p-[14px] flex flex-col items-center justify-center [box-shadow:0px_5px_15px_rgba(0,_0,_0,_0.5)]">
+            <div className="flex items-center justify-center md:flex-col gap-[6px] mb-[6px] md:mb-[0px]">
+              <MonitorSmartphone className="h-8 w-8 md:h-9 md:w-9 text-text-infos" />
+              <h1 className="text-text-infos text-center text-[14px] md:text-[16px] font-medium mb-[0px] md:mb-[6px]">
                 Seguro Dispositivos
               </h1>
             </div>

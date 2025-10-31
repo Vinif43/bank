@@ -15,10 +15,14 @@ const transactionLabels: Record<string, string> = {
 }
 
 const transactionColors: Record<string, string> = {
-  deposito: 'bg-[#075b03]/10 text-[#075b03] border-[#075b03]',
-  transferencia: 'bg-[#ff98ff]/20 text-[#800180] border-[#800180]',
-  pagamento: 'bg-[#829300]/10 text-[#829300] border-[#829300]',
-  saque: 'bg-[#0b0591]/10 text-[#0b0591] border-[#0b0591]',
+  deposito:
+    'bg-transaction-success/10 text-transaction-success border-transaction-success',
+  transferencia:
+    'bg-transaction-transfer/20 text-transaction-transfer-info border-transaction-transfer-info',
+  pagamento:
+    'bg-transaction-payment/10 text-transaction-payment border-transaction-payment',
+  saque:
+    'bg-transaction-withdraw/10 text-transaction-withdraw border-transaction-withdraw',
 }
 
 interface TransactionListProps {
