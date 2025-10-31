@@ -25,9 +25,9 @@ export function CreateTransactionDialog({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle>Nova Transação</DialogTitle>
+          <DialogTitle>Nova transação</DialogTitle>
           <DialogDescription>
-            Informe as informações da transação
+            Adicione as informações da transação
           </DialogDescription>
         </DialogHeader>
         <TransactionForm isModal onOpenChange={onOpenChange} />
