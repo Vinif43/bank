@@ -27,6 +27,7 @@ export function BalanceCard({ balance }: BalanceCardProps) {
           <Button
             variant="ghost"
             size="icon"
+            title="Visualizar saldo"
             className="h-8 w-8 text-primary-foreground hover:bg-primary-foreground/10"
             onClick={() => setShowBalance(!showBalance)}
           >

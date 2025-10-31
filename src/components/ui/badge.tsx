@@ -17,6 +17,10 @@ const badgeVariants = cva(
           "border-transparent bg-destructive text-white [a&]:hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
         outline:
           "text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
+          deposito: "bg-transaction-success/10 text-transaction-success border-transaction-success",
+          transferencia: "bg-transaction-transfer/20 text-transaction-transfer-info border-transaction-transfer-info",
+          pagamento: 'bg-transaction-payment/10 text-transaction-payment border-transaction-payment',
+          saque: "bg-transaction-withdraw/10 text-transaction-withdraw border-transaction-withdraw"
       },
     },
     defaultVariants: {
