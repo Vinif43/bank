@@ -20,6 +20,7 @@ import {
   Landmark,
 } from 'lucide-react'
 import { useState, useEffect } from 'react'
+import { InfosCard } from '@/components/infos-card'
 
 export default function LoginPage() {
   const [isLoginDialogOpen, setIsLoginDialogOpen] = useState(false)
@@ -75,53 +76,29 @@ export default function LoginPage() {
           Vantagens do nosso banco
         </h2>
         <div className="grid grid-cols-[1fr_1fr] md:grid-cols-[1fr_1fr_1fr_1fr] gap-[20px] pt-[0] px-[3%] pb-[5%] md:pb-[3%]">
-          <div className="border-[1px]border-foreground rounded-[16px] p-[14px] flex flex-col items-center justify-center [box-shadow:0px_5px_15px_rgba(0,_0,_0,_0.5)]">
-            <div className="flex items-center justify-center md:flex-col gap-[6px] mb-[6px] md:mb-[0px]">
-              <Gift className="h-8 w-8 md:h-9 md:w-9 text-text-infos" />
-              <h1 className="text-text-infos text-center text-[14px] md:text-[16px] font-medium mb-[0px] md:mb-[6px]">
-                Conta e cartão gratuitos
-              </h1>
-            </div>
-            <p className="text-[12px] md:text-[14px] text-center">
-              Isso mesmo, nossa conta é digital, sem custo fixo e mais que isso:
-              sem tarifa de manutenção.
-            </p>
-          </div>
-          <div className="border-[1px]border-foreground rounded-[16px] p-[14px] flex flex-col items-center justify-center [box-shadow:0px_5px_15px_rgba(0,_0,_0,_0.5)]">
-            <div className="flex items-center justify-center md:flex-col gap-[6px] mb-[6px] md:mb-[0px]">
-              <HandCoins className="h-8 w-8 md:h-9 md:w-9 text-text-infos" />
-              <h1 className="text-text-infos text-center text-[14px] md:text-[16px] font-medium mb-[0px] md:mb-[6px]">
-                Saques sem custo
-              </h1>
-            </div>
-            <p className="text-[12px] md:text-[14px] text-center">
-              Você pode sacar gratuitamente 4x por mês de qualquer Banco 24h.
-            </p>
-          </div>
-          <div className="border-[1px]border-foreground rounded-[16px] p-[14px] flex flex-col items-center justify-center [box-shadow:0px_5px_15px_rgba(0,_0,_0,_0.5)]">
-            <div className="flex items-center justify-center md:flex-col gap-[6px] mb-[6px] md:mb-[0px]">
-              <Star className="h-8 w-8 md:h-9 md:w-9 text-text-infos" />
-              <h1 className="text-text-infos text-center text-[14px] md:text-[16px] font-medium mb-[0px] md:mb-[6px]">
-                Programa de pontos
-              </h1>
-            </div>
-            <p className="text-[12px] md:text-[14px] text-center">
-              Você pode acumular pontos com suas compras no crédito sem pagar
-              mensalidade!
-            </p>
-          </div>
-          <div className="border-[1px]border-foreground rounded-[16px] p-[14px] flex flex-col items-center justify-center [box-shadow:0px_5px_15px_rgba(0,_0,_0,_0.5)]">
-            <div className="flex items-center justify-center md:flex-col gap-[6px] mb-[6px] md:mb-[0px]">
-              <MonitorSmartphone className="h-8 w-8 md:h-9 md:w-9 text-text-infos" />
-              <h1 className="text-text-infos text-center text-[14px] md:text-[16px] font-medium mb-[0px] md:mb-[6px]">
-                Seguro Dispositivos
-              </h1>
-            </div>
-            <p className="text-[12px] md:text-[14px] text-center">
-              Seus dispositivos móveis (computador e laptop) protegidos por uma
-              mensalidade simbólica.
-            </p>
-          </div>
+          <InfosCard
+            title="Conta e cartão gratuitos"
+            Svg={Gift}
+            description="Isso mesmo, nossa conta é digital, sem custo fixo e mais que isso:
+              sem tarifa de manutenção."
+          />
+          <InfosCard
+            title="Saques sem custo"
+            Svg={HandCoins}
+            description="Você pode sacar gratuitamente 4x por mês de qualquer Banco 24h."
+          />
+          <InfosCard
+            title="Programa de pontos"
+            Svg={Star}
+            description="Você pode acumular pontos com suas compras no crédito sem pagar
+              mensalidade!"
+          />
+          <InfosCard
+            title="Seguro Dispositivos"
+            Svg={MonitorSmartphone}
+            description="Seus dispositivos móveis (computador e laptop) protegidos por uma
+              mensalidade simbólica."
+          />
         </div>
       </main>
 

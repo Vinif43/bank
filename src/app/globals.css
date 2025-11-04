@@ -92,7 +92,7 @@
   --transaction-success: oklch(0.4095 0.136 142.21);
   --transaction-transfer: oklch(0.8203 0.1762 327.03);
   --transaction-transfer-info: oklch(0.4213 0.1929 328.36);
-  --transaction-payment: oklch(0.6276 0.145561 117.6221);
+  --transaction-payment: oklch(49.841% 0.11633 118.335);
   --transaction-withdraw: oklch(0.3039 0.2007 266.56);
 }
 
