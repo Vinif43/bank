@@ -1,5 +1,3 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
 ## Requisitos do desafio
 
 ### Home Page
@@ -14,8 +12,8 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ### Adicionar Nova Transação
 
-- [X] Uma página ou modal para adicionar uma nova transação ao banco de dados.
-- [ ] Formulário deve incluir campos como tipo de transação (depósito, transferência, etc.), valor e data.
+- [x] Uma página ou modal para adicionar uma nova transação ao banco de dados.
+- [x] Formulário deve incluir campos como tipo de transação (depósito, transferência, etc.), valor e data.
 
 ### Editar Transação
 
@@ -23,26 +21,23 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ### Next.js
 
-- [ ] Configure e organize o projeto utilizando Next.js.
-  - Adicionar error boundaries (error.tsx) para cada rota?
+- [x] Configure e organize o projeto utilizando Next.js.
 
 ### Design System
 
-- [ ] Crie um design system que garanta consistência visual e reutilização de componentes.
+- [x] Crie um design system que garanta consistência visual e reutilização de componentes.
   - Assegurar a acessibilidade de contraste de cores
 - [x] Use ferramentas como Storybook, Docusaurus ou GitBook para documentar os componentes.
 - [x] Explore bibliotecas como Material-UI, Bootstrap ou Tailwind UI para agilizar o desenvolvimento.
-- [ ] Garantir consistência visual, boa usabilidade e acessibilidade.
-  - Testar navegação pelo teclado e controle do foco ao abrir e fechar modais.
+- [x] Garantir consistência visual, boa usabilidade e acessibilidade.
 
 ### Material para a entrega
 
-- [ ] Link do repositório Git do projeto.
-- [ ] README do projeto com as informações para executá-lo em ambiente de desenvolvimento.
-- [ ] Vídeo de até 5min explicando todo o fluxo do front-end desenvolvido.
-  - Devemos entregar o link do vídeo ou o vídeo em si?
+- [x] Link do repositório Git do projeto.
+- [x] README do projeto com as informações para executá-lo em ambiente de desenvolvimento.
+- [x] Vídeo de até 5min explicando todo o fluxo do front-end desenvolvido.
 
-## Getting Started
+## Getting Started - Passo a passo de como executar o Projeto em next.js
 
 First, run the development server:
 
@@ -76,3 +71,5 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
