@@ -1,5 +1,4 @@
-# Tech Challenge Fase 1 [POS TECH - FIAP + Alura]
-## Requisitos do desafio
+## Tech Challenge - Fase 1: Requisitos do desafio
 
 ### Home Page
 
