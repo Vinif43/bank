@@ -1,3 +1,4 @@
+# Tech Challenge Fase 1 [POS TECH - FIAP + Alura]
 ## Requisitos do desafio
 
 ### Home Page
@@ -37,7 +38,7 @@
 - [x] README do projeto com as informações para executá-lo em ambiente de desenvolvimento.
 - [x] Vídeo de até 5min explicando todo o fluxo do front-end desenvolvido.
 
-## Getting Started - Passo a passo de como executar o Projeto em next.js
+## Getting Started - Passo a passo de como executar o Projeto no ambinte de desenvolvimento
 
 First, run the development server:
 
